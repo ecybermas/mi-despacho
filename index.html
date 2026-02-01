@@ -147,11 +147,22 @@
       margin-bottom: 0.5rem;
       color: #d4af37;
       text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.8s ease-out;
     }
     .hero-content .subtitle {
       font-size: clamp(1.3rem, 5vw, 2.2rem);
       font-weight: 500;
       max-width: 800px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.8s ease-out 0.3s; /* leve retraso para que aparezca después del nombre */
+    }
+    .hero-content .name.visible,
+    .hero-content .subtitle.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     /* CONTENIDO PRINCIPAL (después del hero) */
     main .container {
@@ -358,11 +369,10 @@
       <img src="balanza.PNG" alt="Balanza de Justicia - Ruber Rojas Cruz" class="hero-image">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1 class="name">Ruber Rojas Cruz</h1>
-        <p class="subtitle">Despacho Contable y Jurídico</p>
+        <h1 class="name">RRC</h1>
+        <p class="subtitle">Especialistas Jurídicos y Contables</p>
       </div>
     </section>
-
     <div class="container">
       <!-- Nuestros Servicios -->
       <section class="section" id="servicios">
@@ -430,7 +440,6 @@
           </div>
         </div>
       </section>
-
       <!-- FOOTER -->
       <footer>
         <div class="footer-container">
@@ -472,8 +481,7 @@
       </footer>
     </div>
   </main>
-
-  <!-- Script: cierra menú y hace scroll a la sección Contable en móvil -->
+  <!-- Script: cierra menú y hace scroll a la sección Contable en móvil + transición del hero -->
   <script>
     // Solo en móvil
     if (window.innerWidth <= 768) {
@@ -481,11 +489,9 @@
         link.addEventListener('click', function(e) {
           // Cerrar el menú hamburguesa
           document.getElementById('menu-check').checked = false;
-
           // Restaurar opacidad del contenido principal
           document.querySelector('main').style.opacity = '1';
           document.querySelector('main').style.pointerEvents = 'auto';
-
           // Scroll suave hacia la sección de servicios (Contable)
           e.preventDefault();
           const servicios = document.querySelector('#servicios');
@@ -497,7 +503,14 @@
         });
       });
     }
-  </script>
 
+    // === EFECTO DE TRANSICIÓN EN LAS LETRAS DEL HERO ===
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.querySelector('.hero-content .name').classList.add('visible');
+        document.querySelector('.hero-content .subtitle').classList.add('visible');
+      }, 300); // leve retraso para que se vea natural
+    });
+  </script>
 </body>
 </html>
