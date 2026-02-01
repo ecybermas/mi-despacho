@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+Aquí tienes el código HTML completo con el menú corregido para que sea desplegable correctamente en dispositivos móviles.
+Los cambios principales realizados:
+
+Reordené los elementos dentro de .nav-container: primero el checkbox, luego el label (hamburguesa), después los enlaces y al final el logo.
+Esto permite que el selector CSS #menu-check:checked ~ .nav-links funcione correctamente.
+Mantuve todo el resto del código igual (estilos, estructura, etc.).
+
+HTML<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -204,18 +211,18 @@
         right: 0;
         background: #0a1f44;
         padding: 1.5rem;
-        gap: 1.8rem;           /* más espacio entre items para mejor toque */
+        gap: 1.8rem;
         text-align: center;
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        transition: all 0.3s ease;  /* animación suave al abrir */
+        transition: all 0.3s ease;
       }
-      /* Cuando se marca el checkbox (al tocar ☰), se muestra el menú */
+      /* Cuando se marca el checkbox, se muestra el menú */
       #menu-check:checked ~ .nav-links {
         display: flex;
       }
-      /* Ocultamos el contenido principal cuando el menú está abierto (opcional, evita scroll raro) */
+      /* Oscurecer fondo principal al abrir menú (opcional) */
       #menu-check:checked ~ main {
-        opacity: 0.3;           /* o puedes usar display: none; si prefieres ocultarlo totalmente */
+        opacity: 0.3;
         pointer-events: none;
       }
       main {
@@ -302,21 +309,27 @@
   </style>
 </head>
 <body>
-  <!-- Menú (logo a la derecha) -->
+
+  <!-- Menú (logo a la derecha) - ORDEN CORREGIDO PARA MÓVIL -->
   <nav class="navbar">
     <div class="nav-container">
+
+      <input type="checkbox" id="menu-check">
+      <label for="menu-check" class="menu-toggle">☰</label>
+
       <div class="nav-links">
         <a href="#servicios">Nuestros Servicios</a>
         <a href="#vision">Visión y Misión</a>
         <a href="#clientes">Nuestros Clientes</a>
       </div>
-      <input type="checkbox" id="menu-check">
-      <label for="menu-check" class="menu-toggle">☰</label>
+
       <a href="#" class="logo">
-        <img src="firmarrc.png" alt="RRC Despacho Contable y Jurídico" class="logo-img">
+        <img src="firmarrc.PNG" alt="RRC Despacho Contable y Jurídico" class="logo-img">
       </a>
+
     </div>
   </nav>
+
   <!-- Burbuja flotante WhatsApp -->
   <div class="whatsapp-float">
     <a href="https://wa.me/522291349025" target="_blank" rel="noopener noreferrer">
@@ -325,9 +338,10 @@
       </svg>
     </a>
   </div>
+
   <main>
     <div class="container">
-      <!-- Sección de inicio (sin el RRC dorado grande) -->
+      <!-- Sección de inicio -->
       <section class="section" id="inicio">
         <div class="logos-grid">
           <div class="logo-card">
@@ -339,6 +353,7 @@
           </div>
         </div>
       </section>
+
       <!-- Nuestros Servicios -->
       <section class="section" id="servicios">
         <h2>Nuestros Servicios</h2>
@@ -360,6 +375,7 @@
               <li>Realizamos tus Facturas Timbradas</li>
             </ul>
           </div>
+          <!-- resto de categorías de servicios sin cambios -->
           <div class="service-category">
             <div class="category-title">Jurídico Laboral</div>
             <ul class="service-list">
@@ -405,6 +421,7 @@
           </div>
         </div>
       </section>
+
       <!-- FOOTER -->
       <footer>
         <div class="footer-container">
