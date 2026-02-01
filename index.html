@@ -170,22 +170,6 @@
       font-weight: 800;
       text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
     }
-    /* === FULL-SCREEN HORIZONTAL PARA IMAGEN BALANZA === */
-    #inicio {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center; /* centrado para formato horizontal */
-      z-index: -1;
-    }
     /* SERVICIOS */
     .services {
       max-width: 900px;
@@ -358,13 +342,13 @@
   </div>
   <main>
     <div class="container">
-      <!-- Sección de inicio - full screen horizontal -->
+      <!-- Sección de inicio -->
       <section class="section" id="inicio">
-        <img src="balanza.PNG" alt="Balanza de Justicia" class="hero-bg">
         <div class="logos-grid">
           <div class="logo-card">
             <div class="icon-wrapper">
-              <!-- La imagen ya está como fondo full-screen arriba, aquí solo se mantiene la estructura original -->
+              <!-- Línea agregada para que la imagen se muestre correctamente -->
+              <img src="balanza.PNG" alt="Balanza de Justicia" class="icon">
             </div>
             <div class="name animate-on-load golden-text">Ruber Rojas Cruz</div>
             <div class="subtitle animate-on-load">Despacho Contable y Jurídico</div>
