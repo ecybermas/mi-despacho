@@ -187,10 +187,13 @@
       left: 0;
       color: #d4af37;
     }
-    /* RESPONSIVE */
+    /* RESPONSIVE - menú hamburguesa que despliega los enlaces */
     @media (max-width: 768px) {
       .nav-container {
         justify-content: space-between;
+      }
+      .menu-toggle {
+        display: block;
       }
       .nav-links {
         display: none;
@@ -201,18 +204,19 @@
         right: 0;
         background: #0a1f44;
         padding: 1.5rem;
-        gap: 1.4rem;
+        gap: 1.8rem;           /* más espacio entre items para mejor toque */
         text-align: center;
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;  /* animación suave al abrir */
       }
-      .menu-toggle {
-        display: block;
-      }
-      #menu-check:checked ~ main {
-        display: none;
-      }
+      /* Cuando se marca el checkbox (al tocar ☰), se muestra el menú */
       #menu-check:checked ~ .nav-links {
         display: flex;
+      }
+      /* Ocultamos el contenido principal cuando el menú está abierto (opcional, evita scroll raro) */
+      #menu-check:checked ~ main {
+        opacity: 0.3;           /* o puedes usar display: none; si prefieres ocultarlo totalmente */
+        pointer-events: none;
       }
       main {
         padding-top: 80px;
@@ -309,11 +313,10 @@
       <input type="checkbox" id="menu-check">
       <label for="menu-check" class="menu-toggle">☰</label>
       <a href="#" class="logo">
-        <img src="firmarrc.PNG" alt="RRC Despacho Contable y Jurídico" class="logo-img">
+        <img src="firmarrc.png" alt="RRC Despacho Contable y Jurídico" class="logo-img">
       </a>
     </div>
   </nav>
-
   <!-- Burbuja flotante WhatsApp -->
   <div class="whatsapp-float">
     <a href="https://wa.me/522291349025" target="_blank" rel="noopener noreferrer">
@@ -322,7 +325,6 @@
       </svg>
     </a>
   </div>
-
   <main>
     <div class="container">
       <!-- Sección de inicio (sin el RRC dorado grande) -->
@@ -337,7 +339,6 @@
           </div>
         </div>
       </section>
-
       <!-- Nuestros Servicios -->
       <section class="section" id="servicios">
         <h2>Nuestros Servicios</h2>
@@ -404,7 +405,6 @@
           </div>
         </div>
       </section>
-
       <!-- FOOTER -->
       <footer>
         <div class="footer-container">
@@ -447,5 +447,4 @@
     </div>
   </main>
 </body>
-
 </html>
