@@ -155,40 +155,7 @@
       font-size: 1.1rem;
       color: #555;
     }
-    /* SERVICIOS */
-    .services {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .service-category {
-      margin-bottom: 2.8rem;
-    }
-    .category-title {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: #d4af37;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.6rem;
-    }
-    .service-list {
-      list-style: none;
-      font-size: 1.1rem;
-      color: #000;
-    }
-    .service-list li {
-      margin-bottom: 0.9rem;
-      padding-left: 1.4rem;
-      position: relative;
-    }
-    .service-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #d4af37;
-    }
-
-    /* === HERO FULL-SCREEN CON IMAGEN VERTICAL + TRANSICIÓN EN TEXTO === */
+    /* === HERO FULL-SCREEN CON IMAGEN HORIZONTAL FULL-SCREEN === */
     #inicio {
       position: relative;
       height: 100vh;
@@ -213,7 +180,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center; /* centrado para que se vea bien en horizontal */
       z-index: 0;
     }
     .hero-content {
@@ -245,7 +212,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
     /* RESPONSIVE - menú hamburguesa que despliega los enlaces */
     @media (max-width: 768px) {
       .nav-container {
@@ -395,7 +361,7 @@
   </div>
   <main>
     <div class="container">
-      <!-- Sección de inicio - ahora full screen con imagen vertical -->
+      <!-- Sección de inicio - ahora full screen con imagen horizontal -->
       <section class="section" id="inicio">
         <img src="balanza.PNG" alt="Balanza de Justicia" class="hero-bg">
         <div class="hero-content">
@@ -511,7 +477,6 @@
       </footer>
     </div>
   </main>
-
   <!-- Script: cierra menú y hace scroll a la sección Contable en móvil -->
   <script>
     // Solo en móvil
@@ -520,11 +485,9 @@
         link.addEventListener('click', function(e) {
           // Cerrar el menú hamburguesa
           document.getElementById('menu-check').checked = false;
-
           // Restaurar opacidad del contenido principal
           document.querySelector('main').style.opacity = '1';
           document.querySelector('main').style.pointerEvents = 'auto';
-
           // Scroll suave hacia la sección de servicios (Contable)
           e.preventDefault();
           const servicios = document.querySelector('#servicios');
@@ -536,7 +499,6 @@
         });
       });
     }
-
     // === EFECTO DE TRANSICIÓN AL CARGAR / ACTUALIZAR PÁGINA ===
     window.addEventListener('load', function() {
       setTimeout(() => {
@@ -545,8 +507,5 @@
       }, 300); // leve retraso para que se vea más natural
     });
   </script>
-
 </body>
 </html>
-
-
