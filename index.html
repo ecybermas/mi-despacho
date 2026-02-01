@@ -135,11 +135,11 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* sube todo el contenido un poco */
+      justify-content: flex-start; /* sube todo el contenido */
       align-items: center;
       text-align: center;
       color: white;
-      padding: 6rem 1.5rem 0; /* espacio superior reducido para subir los textos */
+      padding: 8rem 1.5rem 0; /* espacio superior para subir los textos */
     }
     .hero-content .name {
       font-size: clamp(2.5rem, 8vw, 5rem);
@@ -155,7 +155,7 @@
       font-size: clamp(1.3rem, 5vw, 2.2rem);
       font-weight: 500;
       max-width: 800px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       opacity: 0;
       transform: translateY(40px);
       transition: all 1.8s ease-out 0.3s;
@@ -277,7 +277,7 @@
         min-height: 80vh;
       }
       .hero-content {
-        padding-top: 5rem; /* ajustado para móvil */
+        padding-top: 6rem; /* ajustado para móvil */
       }
       .hero-content .name {
         font-size: clamp(2.2rem, 10vw, 4rem);
@@ -390,7 +390,7 @@
       <div class="hero-content">
         <h1 class="name">RRC</h1>
         <p class="subtitle">Especialistas Jurídicos y Contables</p>
-        <p class="quote">"EL QUE NO QUIERA VIVIR SINO ENTRE JUSTOS<br>                        VIVA EN EL DESIERTO"</p>
+        <p class="quote">"EL QUE NO QUIERA VIVIR SINO ENTRE JUSTOS<br>VIVA EN EL DESIERTO"</p>
       </div>
     </section>
     <div class="container">
@@ -523,6 +523,7 @@
         });
       });
     }
+
     // === EFECTO DE TRANSICIÓN EN LAS LETRAS DEL HERO + FRASE ===
     window.addEventListener('load', function() {
       setTimeout(() => {
@@ -534,3 +535,4 @@
   </script>
 </body>
 </html>
+
