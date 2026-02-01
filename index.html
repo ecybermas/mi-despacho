@@ -320,4 +320,222 @@
       color: #d4af37;
       margin-bottom: 0.8rem;
     }
-    .footer
+    .footer-section h3 {
+      color: #d4af37;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .footer-section p, .footer-section a {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .footer-section a:hover {
+      color: #d4af37;
+      text-decoration: underline;
+    }
+    .map-container {
+      margin-top: 1rem;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+    .footer-bottom {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #334466;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    @media (max-width: 768px) {
+      .map-container iframe {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú (logo a la derecha) - ORDEN CORREGIDO PARA MÓVIL -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <input type="checkbox" id="menu-check">
+      <label for="menu-check" class="menu-toggle">☰</label>
+      <div class="nav-links">
+        <a href="#servicios">Nuestros Servicios</a>
+        <a href="#vision">Visión y Misión</a>
+        <a href="#clientes">Nuestros Clientes</a>
+      </div>
+      <a href="#" class="logo">
+        <img src="firmarrc.PNG" alt="RRC Despacho Contable y Jurídico" class="logo-img">
+      </a>
+    </div>
+  </nav>
+  <!-- Burbuja flotante WhatsApp -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/522291349025" target="_blank" rel="noopener noreferrer">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+  </div>
+  <main>
+    <div class="container">
+      <!-- Sección de inicio - full screen horizontal con marca de agua -->
+      <section class="section" id="inicio">
+        <img src="balanza.PNG" alt="Balanza de Justicia" class="hero-bg">
+        <div class="watermark-text" id="watermark">Ruber Rojas Cruz</div>
+        <div class="hero-content">
+          <div class="name animate-on-load golden-text">Ruber Rojas Cruz</div>
+          <div class="subtitle animate-on-load">Despacho Contable y Jurídico</div>
+        </div>
+      </section>
+      <!-- Nuestros Servicios -->
+      <section class="section" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="services">
+          <div class="service-category">
+            <div class="category-title">Contable</div>
+            <ul class="service-list">
+              <li>Trámites Ante hacienda federal y ayuntamiento</li>
+              <li>Trámite REPSA</li>
+              <li>Altas patronales y trabajadores ante el IMSS</li>
+              <li>Declaraciones Anuales</li>
+              <li>Tramitamos tu pensión</li>
+              <li>Trámites Municipales</li>
+              <li>Reglamento Interno del Trabajo</li>
+              <li>3% Sobre la Nómina</li>
+              <li>Recursos Administrativos ante el SAT</li>
+              <li>Declaraciones del IMSS</li>
+              <li>Realizamos tu Nómina Timbrada</li>
+              <li>Realizamos tus Facturas Timbradas</li>
+            </ul>
+          </div>
+          <!-- resto de categorías de servicios sin cambios -->
+          <div class="service-category">
+            <div class="category-title">Jurídico Laboral</div>
+            <ul class="service-list">
+              <li>Contestación de Laudo</li>
+              <li>Amparo</li>
+              <li>Pensión</li>
+              <li>Liquidación</li>
+              <li>Jubilación</li>
+            </ul>
+          </div>
+          <div class="service-category">
+            <div class="category-title">Penal</div>
+            <ul class="service-list">
+              <li>Medios Alternativos de Justicia</li>
+              <li>Querellas</li>
+              <li>Defensa</li>
+              <li>Amparo</li>
+            </ul>
+          </div>
+          <div class="service-category">
+            <div class="category-title">Fiscal</div>
+            <ul class="service-list">
+              <li>Recursos Administrativos</li>
+              <li>Recursos de Inconformidad</li>
+              <li>Demanda de lo Contencioso</li>
+            </ul>
+          </div>
+          <div class="service-category">
+            <div class="category-title">Civil</div>
+            <ul class="service-list">
+              <li>Demanda Testamentaria e Intestamentaria</li>
+              <li>Patria Protestar</li>
+              <li>Divorcios</li>
+            </ul>
+          </div>
+          <div class="service-category">
+            <div class="category-title">Gestoría</div>
+            <ul class="service-list">
+              <li>Tránsito</li>
+              <li>Baja</li>
+              <li>etc.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <div class="footer-logo">RRC</div>
+            <p>Despacho Contable y Jurídico<br>Ruber Rojas Cruz</p>
+          </div>
+          <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>WhatsApp: <a href="https://wa.me/522291349025">+52 229 134 9025</a></p>
+            <p>Email: <a href="mailto:info@ruberrojas.com">info@ruberrojas.com</a> (actualiza con el real)</p>
+            <p>Horario: Lunes a Viernes 9:00 - 18:00 hrs</p>
+          </div>
+          <div class="footer-section">
+            <h3>Ubicación</h3>
+            <p>Camperos No. 914</p>
+            <p>Col. Centro, C.P. 91700</p>
+            <p>Veracruz, Veracruz, México</p>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.0000000000005!2d-96.133000!3d19.200000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzAwLjAiTiA5NsKwMDcnNTguOCJX!5e0!3m2!1ses!2smx!4v1730000000000!5m2!1ses!2smx&q=Camperos+914%2C+Colonia+Centro%2C+Veracruz%2C+Veracruz%2C+M%C3%A9xico"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Enlaces rápidos</h3>
+            <p><a href="#servicios">Nuestros Servicios</a></p>
+            <p><a href="#vision">Visión y Misión</a></p>
+            <p><a href="#clientes">Nuestros Clientes</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Ruber Rojas Cruz - Despacho Contable y Jurídico. Todos los derechos reservados.</p>
+          <p><a href="#">Aviso de Privacidad</a> | Atendiendo con responsabilidad en Veracruz, México</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Script: cierra menú y hace scroll a la sección Contable en móvil -->
+  <script>
+    // Solo en móvil
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          // Cerrar el menú hamburguesa
+          document.getElementById('menu-check').checked = false;
+          // Restaurar opacidad del contenido principal
+          document.querySelector('main').style.opacity = '1';
+          document.querySelector('main').style.pointerEvents = 'auto';
+          // Scroll suave hacia la sección de servicios (Contable)
+          e.preventDefault();
+          const servicios = document.querySelector('#servicios');
+          if (servicios) {
+            const offset = 100; // espacio para que no quede tapado por la barra fija
+            const topPos = servicios.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: topPos, behavior: 'smooth' });
+          }
+        });
+      });
+    }
+    // === ACTIVAR MARCA DE AGUA Y ANIMACIÓN AL CARGAR ===
+    window.addEventListener('load', function() {
+      const watermark = document.getElementById('watermark');
+      if (watermark) watermark.classList.add('visible');
+
+      const elements = document.querySelectorAll('.animate-on-load');
+      elements.forEach(el => {
+        el.classList.add('visible');
+      });
+    });
+  </script>
+
+</body>
+</html>
