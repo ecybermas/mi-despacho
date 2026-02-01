@@ -31,7 +31,7 @@
       margin: 0 auto;
       padding: 1rem 1.5rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* logo a la derecha, menú a la izquierda */
       align-items: center;
     }
     .logo {
@@ -103,58 +103,13 @@
       align-items: center;
       justify-content: center;
     }
-    /* HERO - IMAGEN VERTICAL FULL SCREEN */
-    #inicio {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
+    /* CONTENIDO PRINCIPAL */
+    main {
+      padding-top: clamp(90px, 18vw, 120px);
+      padding-bottom: 6rem;
+      transition: opacity 0.3s ease;
     }
-    .hero-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: -1;
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 31, 68, 0.55); /* fondo oscuro semi-transparente */
-      z-index: -1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 0 1.5rem;
-    }
-    .hero-content .name {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      color: #d4af37;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-    }
-    .hero-content .subtitle {
-      font-size: clamp(1.3rem, 5vw, 2.2rem);
-      font-weight: 500;
-      max-width: 800px;
-    }
-    /* CONTENIDO PRINCIPAL (después del hero) */
-    main .container {
+    .container {
       width: 90%;
       max-width: 1100px;
       margin: 0 auto;
@@ -162,8 +117,6 @@
       border-radius: 12px;
       padding: 2.5rem 1.5rem;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      margin-top: 4rem;
-      margin-bottom: 4rem;
     }
     .section {
       margin-bottom: 5rem;
@@ -174,7 +127,51 @@
       font-size: 2.2rem;
       color: #0a1f44;
     }
-    /* Eliminamos el logos-grid antiguo porque ahora usamos hero full */
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem 3rem;
+      margin-bottom: 4rem;
+    }
+    .logo-card {
+      text-align: center;
+    }
+    .icon-wrapper {
+      width: clamp(120px, 25vw, 150px);
+      height: clamp(120px, 25vw, 150px);
+      margin: 0 auto 1.2rem;
+    }
+    .icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* === EFECTO DE TRANSICIÓN PARA EL TEXTO "Ruber Rojas Cruz" === */
+    .animate-on-load {
+      opacity: 0;
+      transform: translateY(-30px);
+      transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    }
+    .animate-on-load.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .golden-text {
+      color: #d4af37 !important;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+    }
+
     /* SERVICIOS */
     .services {
       max-width: 900px;
@@ -229,9 +226,11 @@
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
       }
+      /* Cuando se marca el checkbox, se muestra el menú */
       #menu-check:checked ~ .nav-links {
         display: flex;
       }
+      /* Oscurecer fondo principal al abrir menú (opcional) */
       #menu-check:checked ~ main {
         opacity: 0.3;
         pointer-events: none;
@@ -248,15 +247,6 @@
       }
       .logo-img {
         height: clamp(35px, 7vw, 50px);
-      }
-      #inicio {
-        min-height: 80vh;
-      }
-      .hero-content .name {
-        font-size: clamp(2.2rem, 10vw, 4rem);
-      }
-      .hero-content .subtitle {
-        font-size: clamp(1.1rem, 6vw, 1.8rem);
       }
     }
     @media (max-width: 480px) {
@@ -353,17 +343,19 @@
     </a>
   </div>
   <main>
-    <!-- Hero full vertical con la imagen balanza -->
-    <section class="section" id="inicio">
-      <img src="balanza.PNG" alt="Balanza de Justicia - Ruber Rojas Cruz" class="hero-image">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="name">Ruber Rojas Cruz</h1>
-        <p class="subtitle">Despacho Contable y Jurídico</p>
-      </div>
-    </section>
-
     <div class="container">
+      <!-- Sección de inicio -->
+      <section class="section" id="inicio">
+        <div class="logos-grid">
+          <div class="logo-card">
+            <div class="icon-wrapper">
+              <img src="balanza.PNG" alt="Barras" class="icon">
+            </div>
+            <div class="name animate-on-load golden-text">Ruber Rojas Cruz</div>
+            <div class="subtitle animate-on-load">Despacho Contable y Jurídico</div>
+          </div>
+        </div>
+      </section>
       <!-- Nuestros Servicios -->
       <section class="section" id="servicios">
         <h2>Nuestros Servicios</h2>
@@ -385,6 +377,7 @@
               <li>Realizamos tus Facturas Timbradas</li>
             </ul>
           </div>
+          <!-- resto de categorías de servicios sin cambios -->
           <div class="service-category">
             <div class="category-title">Jurídico Laboral</div>
             <ul class="service-list">
@@ -430,7 +423,6 @@
           </div>
         </div>
       </section>
-
       <!-- FOOTER -->
       <footer>
         <div class="footer-container">
@@ -497,6 +489,14 @@
         });
       });
     }
+
+    // === ACTIVAR ANIMACIÓN AL CARGAR LA PÁGINA ===
+    window.addEventListener('load', function() {
+      const elements = document.querySelectorAll('.animate-on-load');
+      elements.forEach(el => {
+        el.classList.add('visible');
+      });
+    });
   </script>
 
 </body>
