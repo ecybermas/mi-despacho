@@ -155,61 +155,23 @@
       font-size: 1.1rem;
       color: #555;
     }
-    /* === EFECTO DE MARCA DE AGUA PARA EL TEXTO EN LA IMAGEN PRINCIPAL === */
-    .watermark-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(4rem, 15vw, 10rem);
-      font-weight: 900;
-      color: rgba(212, 175, 55, 0.18); /* dorado muy transparente como marca de agua */
-      text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
+
+    /* === EFECTO DE TRANSICIÓN PARA EL TEXTO "Ruber Rojas Cruz" === */
+    .animate-on-load {
       opacity: 0;
-      transition: opacity 3s ease-in-out;
-      z-index: 1;
+      transform: translateY(-30px);
+      transition: opacity 1.5s ease-out, transform 1.5s ease-out;
     }
-    .watermark-text.visible {
+    .animate-on-load.visible {
       opacity: 1;
+      transform: translateY(0);
     }
-    /* === FULL-SCREEN HORIZONTAL PARA IMAGEN BALANZA === */
-    #inicio {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
+    .golden-text {
+      color: #d4af37 !important;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
     }
-    #inicio::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(10, 31, 68, 0.5); /* overlay para legibilidad */
-      z-index: 1;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center; /* centrado para formato horizontal */
-      z-index: 0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 90%;
-      padding: 2rem;
-      text-align: center;
-    }
+
     /* SERVICIOS */
     .services {
       max-width: 900px;
@@ -285,9 +247,6 @@
       }
       .logo-img {
         height: clamp(35px, 7vw, 50px);
-      }
-      .watermark-text {
-        font-size: clamp(3rem, 18vw, 8rem);
       }
     }
     @media (max-width: 480px) {
@@ -385,13 +344,16 @@
   </div>
   <main>
     <div class="container">
-      <!-- Sección de inicio - full screen horizontal con marca de agua -->
+      <!-- Sección de inicio -->
       <section class="section" id="inicio">
-        <img src="balanza.PNG" alt="Balanza de Justicia" class="hero-bg">
-        <div class="watermark-text" id="watermark">Ruber Rojas Cruz</div>
-        <div class="hero-content">
-          <div class="name animate-on-load golden-text">Ruber Rojas Cruz</div>
-          <div class="subtitle animate-on-load">Despacho Contable y Jurídico</div>
+        <div class="logos-grid">
+          <div class="logo-card">
+            <div class="icon-wrapper">
+              <img src="balanza.PNG" alt="Barras" class="icon">
+            </div>
+            <div class="name animate-on-load golden-text">Ruber Rojas Cruz</div>
+            <div class="subtitle animate-on-load">Despacho Contable y Jurídico</div>
+          </div>
         </div>
       </section>
       <!-- Nuestros Servicios -->
@@ -511,9 +473,11 @@
         link.addEventListener('click', function(e) {
           // Cerrar el menú hamburguesa
           document.getElementById('menu-check').checked = false;
+
           // Restaurar opacidad del contenido principal
           document.querySelector('main').style.opacity = '1';
           document.querySelector('main').style.pointerEvents = 'auto';
+
           // Scroll suave hacia la sección de servicios (Contable)
           e.preventDefault();
           const servicios = document.querySelector('#servicios');
@@ -525,11 +489,9 @@
         });
       });
     }
-    // === ACTIVAR MARCA DE AGUA Y ANIMACIÓN AL CARGAR ===
-    window.addEventListener('load', function() {
-      const watermark = document.getElementById('watermark');
-      if (watermark) watermark.classList.add('visible');
 
+    // === ACTIVAR ANIMACIÓN AL CARGAR LA PÁGINA ===
+    window.addEventListener('load', function() {
       const elements = document.querySelectorAll('.animate-on-load');
       elements.forEach(el => {
         el.classList.add('visible');
