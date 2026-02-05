@@ -17,7 +17,7 @@
       min-height: 100vh;
       line-height: 1.6;
     }
-    /* NAVEGACIÓN - logo ahora a la derecha */
+    /* NAVEGACIÓN */
     .navbar {
       background: #0a1f44;
       position: fixed;
@@ -61,7 +61,7 @@
     #menu-check {
       display: none;
     }
-    /* ICONOS DE REDES SOCIALES (en lugar del logo) - solo iconos en blanco */
+    /* ICONOS DE REDES SOCIALES */
     .social-icons {
       display: flex;
       gap: 1.8rem;
@@ -108,7 +108,7 @@
       align-items: center;
       justify-content: center;
     }
-    /* HERO - IMAGEN VERTICAL FULL SCREEN */
+    /* HERO */
     #inicio {
       position: relative;
       height: 100vh;
@@ -131,7 +131,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(10, 31, 68, 0.55); /* fondo oscuro semi-transparente */
+      background: rgba(10, 31, 68, 0.55);
       z-index: -1;
     }
     .hero-content {
@@ -140,11 +140,11 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* sube todo el contenido */
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
       color: white;
-      padding: 8rem 1.5rem 0; /* espacio superior para subir los textos */
+      padding: 8rem 1.5rem 0;
     }
     .hero-content .name {
       font-size: clamp(2.5rem, 8vw, 5rem);
@@ -183,7 +183,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* CONTENIDO PRINCIPAL (después del hero) */
+    /* CONTENIDO PRINCIPAL */
     main .container {
       width: 90%;
       max-width: 1100px;
@@ -211,6 +211,10 @@
     }
     .service-category {
       margin-bottom: 2.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
     .category-title {
       font-size: 1.9rem;
@@ -219,6 +223,12 @@
       margin-bottom: 1rem;
       border-bottom: 2px solid #eee;
       padding-bottom: 0.6rem;
+    }
+    .service-image {
+      width: 120px;
+      height: auto;
+      object-fit: contain;
+      flex-shrink: 0;
     }
     .service-list {
       list-style: none;
@@ -236,7 +246,7 @@
       left: 0;
       color: #d4af37;
     }
-    /* RESPONSIVE - menú hamburguesa que despliega los enlaces */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-container {
         justify-content: space-between;
@@ -279,7 +289,7 @@
         min-height: 80vh;
       }
       .hero-content {
-        padding-top: 6rem; /* ajustado para móvil */
+        padding-top: 6rem;
       }
       .hero-content .name {
         font-size: clamp(2.2rem, 10vw, 4rem);
@@ -289,6 +299,13 @@
       }
       .hero-content .quote {
         font-size: clamp(1rem, 4vw, 1.4rem);
+      }
+      .service-category {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .service-image {
+        width: 100px;
       }
     }
     @media (max-width: 480px) {
@@ -361,7 +378,7 @@
   </style>
 </head>
 <body>
-  <!-- Menú (logo a la derecha) - ORDEN CORREGIDO PARA MÓVIL -->
+  <!-- Menú -->
   <nav class="navbar">
     <div class="nav-container">
       <input type="checkbox" id="menu-check">
@@ -371,7 +388,7 @@
         <a href="#vision">Visión y Misión</a>
         <a href="#clientes">Nuestros Clientes</a>
       </div>
-      <!-- Iconos de redes sociales en blanco (solo iconos) -->
+      <!-- Iconos de redes sociales en blanco -->
       <div class="social-icons">
         <!-- X -->
         <svg viewBox="0 0 24 24">
@@ -390,6 +407,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Burbuja flotante WhatsApp -->
   <div class="whatsapp-float">
     <a href="https://wa.me/522291349025" target="_blank" rel="noopener noreferrer">
@@ -398,8 +416,9 @@
       </svg>
     </a>
   </div>
+
   <main>
-    <!-- Hero full vertical con la imagen balanza -->
+    <!-- Hero -->
     <section class="section" id="inicio">
       <img src="balanza.PNG" alt="Balanza de Justicia - Ruber Rojas Cruz" class="hero-image">
       <div class="hero-overlay"></div>
@@ -409,6 +428,7 @@
         <p class="quote">"EL QUE NO QUIERA VIVIR SINO ENTRE JUSTOS<br>VIVA EN EL DESIERTO"</p>
       </div>
     </section>
+
     <div class="container">
       <!-- Nuestros Servicios -->
       <section class="section" id="servicios">
@@ -416,20 +436,7 @@
         <div class="services">
           <div class="service-category">
             <div class="category-title">Contable</div>
-            <ul class="service-list">
-              <li>Trámites Ante hacienda federal y ayuntamiento</li>
-              <li>Trámite REPSA</li>
-              <li>Altas patronales y trabajadores ante el IMSS</li>
-              <li>Declaraciones Anuales</li>
-              <li>Tramitamos tu pensión</li>
-              <li>Trámites Municipales</li>
-              <li>Reglamento Interno del Trabajo</li>
-              <li>3% Sobre la Nómina</li>
-              <li>Recursos Administrativos ante el SAT</li>
-              <li>Declaraciones del IMSS</li>
-              <li>Realizamos tu Nómina Timbrada</li>
-              <li>Realizamos tus Facturas Timbradas</li>
-            </ul>
+            <img src="" alt="Imagen Contable" class="service-image">
           </div>
           <div class="service-category">
             <div class="category-title">Jurídico Laboral</div>
@@ -476,6 +483,7 @@
           </div>
         </div>
       </section>
+
       <!-- FOOTER -->
       <footer>
         <div class="footer-container">
@@ -517,35 +525,32 @@
       </footer>
     </div>
   </main>
-  <!-- Script: cierra menú y hace scroll a la sección Contable en móvil + transición del hero -->
+
+  <!-- Script -->
   <script>
-    // Solo en móvil
     if (window.innerWidth <= 768) {
       document.querySelectorAll('.nav-links a').forEach(function(link) {
         link.addEventListener('click', function(e) {
-          // Cerrar el menú hamburguesa
           document.getElementById('menu-check').checked = false;
-          // Restaurar opacidad del contenido principal
           document.querySelector('main').style.opacity = '1';
           document.querySelector('main').style.pointerEvents = 'auto';
-          // Scroll suave hacia la sección de servicios (Contable)
           e.preventDefault();
           const servicios = document.querySelector('#servicios');
           if (servicios) {
-            const offset = 100; // espacio para que no quede tapado por la barra fija
+            const offset = 100;
             const topPos = servicios.getBoundingClientRect().top + window.pageYOffset - offset;
             window.scrollTo({ top: topPos, behavior: 'smooth' });
           }
         });
       });
     }
-    // === EFECTO DE TRANSICIÓN EN LAS LETRAS DEL HERO + FRASE ===
+
     window.addEventListener('load', function() {
       setTimeout(() => {
         document.querySelector('.hero-content .name').classList.add('visible');
         document.querySelector('.hero-content .subtitle').classList.add('visible');
         document.querySelector('.hero-content .quote').classList.add('visible');
-      }, 300); // leve retraso para que se vea natural
+      }, 300);
     });
   </script>
 </body>
