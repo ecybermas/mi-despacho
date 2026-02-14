@@ -403,7 +403,6 @@
       </div>
     </div>
   </nav>
-
   <div class="whatsapp-float">
     <a href="https://wa.me/522291349025" target="_blank" rel="noopener noreferrer">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -411,7 +410,6 @@
       </svg>
     </a>
   </div>
-
   <main>
     <section class="section" id="inicio">
       <img src="balanza.PNG" alt="Balanza de Justicia - Corporativo Rojas" class="hero-image">
@@ -422,19 +420,18 @@
         <p class="quote">"EL QUE NO QUIERA VIVIR SINO ENTRE JUSTOS<br>VIVA EN EL DESIERTO"</p>
       </div>
     </section>
-
     <div class="container">
       <section class="section" id="servicios">
         <h2>Nuestros Servicios</h2>
-        
+       
         <!-- Banner responsive agregado aquí -->
         <div class="category-title">Contable</div>
-        <img src="imgcontable1.png" 
-             alt="Servicios Contables - Calculadora, sello timbrado, balanza de justicia - Corporativo Rojas" 
+        <img src="imgcontable1.png"
+             alt="Servicios Contables - Calculadora, sello timbrado, balanza de justicia - Corporativo Rojas"
              class="service-banner">
-        
+       
         <div class="services">
-          <div class="service-category">                       
+          <div class="service-category">
             <ul class="service-list">
               <li>Trámites ante hacienda federal y ayuntamiento</li>
               <li>Trámite REPSA</li>
@@ -475,7 +472,7 @@
           </div>
           <div class="service-category">
             <div class="category-title">Fiscal</div>
-            <img src="fiscal1.png" 
+            <img src="fiscal1.png"
               class="service-banner">
             <ul class="service-list">
               <li>Recursos Administrativos</li>
@@ -485,7 +482,7 @@
           </div>
           <div class="service-category">
             <div class="category-title">Civil</div>
-            <img src="civil1.png" 
+            <img src="civil1.png"
               class="service-banner">
             <ul class="service-list">
               <li>Demanda Testamentaria e Intestamentaria</li>
@@ -495,7 +492,7 @@
           </div>
           <div class="service-category">
             <div class="category-title">Gestoría</div>
-            <img src="gestoria1.png" 
+            <img src="gestoria1.png"
                class="service-banner">
             <ul class="service-list">
               <li>Tránsito</li>
@@ -505,7 +502,6 @@
           </div>
         </div>
       </section>
-
       <footer>
         <div class="footer-container">
           <div class="footer-section">
@@ -547,83 +543,52 @@
     </div>
   </main>
 
+  <!-- Script mejorado: menú móvil + animación hero robusta -->
   <script>
+    // Menú móvil: solo interviene en enlaces internos (#), permite navegación a contacto.html
     if (window.innerWidth <= 768) {
       document.querySelectorAll('.nav-links a').forEach(function(link) {
         link.addEventListener('click', function(e) {
-          document.getElementById('menu-check').checked = false;
-          document.querySelector('main').style.opacity = '1';
-          document.querySelector('main').style.pointerEvents = 'auto';
-          e.preventDefault();
-          const servicios = document.querySelector('#servicios');
-          if (servicios) {
-            const offset = 100;
-            const topPos = servicios.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top: topPos, behavior: 'smooth' });
+          const href = this.getAttribute('href');
+
+          // Solo prevenir default y scroll si es enlace interno (empieza con #)
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+
+            // Cierra menú hamburguesa
+            document.getElementById('menu-check').checked = false;
+            document.querySelector('main').style.opacity = '1';
+            document.querySelector('main').style.pointerEvents = 'auto';
+
+            // Scroll suave
+            const targetId = href.substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+              const offset = 100;
+              const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+              window.scrollTo({ top: topPos, behavior: 'smooth' });
+            }
           }
+          // Si es contacto.html → navegación normal (no hacemos preventDefault)
         });
       });
     }
+
+    // Animación hero - versión robusta con chequeos y timeout más seguro
     window.addEventListener('load', function() {
       setTimeout(() => {
-        document.querySelector('.hero-content .name').classList.add('visible');
-        document.querySelector('.hero-content .subtitle').classList.add('visible');
-        document.querySelector('.hero-content .quote').classList.add('visible');
-      }, 300);
+        const nameEl    = document.querySelector('.hero-content .name');
+        const subtitleEl = document.querySelector('.hero-content .subtitle');
+        const quoteEl    = document.querySelector('.hero-content .quote');
+
+        if (nameEl)    nameEl.classList.add('visible');
+        if (subtitleEl) subtitleEl.classList.add('visible');
+        if (quoteEl)   quoteEl.classList.add('visible');
+
+        // Opcional: depuración (puedes quitar después de probar)
+        // if (!nameEl) console.warn('Elemento .name no encontrado');
+      }, 600); // 600ms para dar tiempo a imágenes y DOM
     });
- <script>
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll('.nav-links a').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-
-        // Solo intervenir si es un enlace interno (empieza con #)
-        if (href && href.startsWith('#')) {
-          e.preventDefault();  // Bloquea solo para internos
-
-          // Cierra menú hamburguesa
-          document.getElementById('menu-check').checked = false;
-          document.querySelector('main').style.opacity = '1';
-          document.querySelector('main').style.pointerEvents = 'auto';
-
-          // Scroll suave al target
-          const targetId = href.substring(1);
-          const target = document.getElementById(targetId);
-          if (target) {
-            const offset = 100; // Ajusta si necesitas
-            const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top: topPos, behavior: 'smooth' });
-          }
-        }
-        // Si es contacto.html o cualquier href sin # → NO hacemos nada → navegación normal
-      });
-    });
-  }
-
-  // Mantén la animación del hero (si la tenías)
-  window.addEventListener('load', function() {
-    setTimeout(() => {
-      document.querySelector('.hero-content .name').classList.add('visible');
-      document.querySelector('.hero-content .subtitle').classList.add('visible');
-      document.querySelector('.hero-content .quote').classList.add('visible');
-    }, 300);
-  });
-</script>
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
