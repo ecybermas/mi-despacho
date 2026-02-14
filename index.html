@@ -571,9 +571,47 @@
         document.querySelector('.hero-content .quote').classList.add('visible');
       }, 300);
     });
-  </script>
+ <script>
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+
+        // Solo intervenir si es un enlace interno (empieza con #)
+        if (href && href.startsWith('#')) {
+          e.preventDefault();  // Bloquea solo para internos
+
+          // Cierra menú hamburguesa
+          document.getElementById('menu-check').checked = false;
+          document.querySelector('main').style.opacity = '1';
+          document.querySelector('main').style.pointerEvents = 'auto';
+
+          // Scroll suave al target
+          const targetId = href.substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            const offset = 100; // Ajusta si necesitas
+            const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: topPos, behavior: 'smooth' });
+          }
+        }
+        // Si es contacto.html o cualquier href sin # → NO hacemos nada → navegación normal
+      });
+    });
+  }
+
+  // Mantén la animación del hero (si la tenías)
+  window.addEventListener('load', function() {
+    setTimeout(() => {
+      document.querySelector('.hero-content .name').classList.add('visible');
+      document.querySelector('.hero-content .subtitle').classList.add('visible');
+      document.querySelector('.hero-content .quote').classList.add('visible');
+    }, 300);
+  });
+</script>
 </body>
 </html>
+
 
 
 
