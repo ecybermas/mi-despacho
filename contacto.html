@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto - Corporativo Rojas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: white;
+      color: #222;
+      line-height: 1.6;
+    }
+    .navbar {
+      background: #0a1f44;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      font-weight: 500;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+    main {
+      padding-top: 120px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    h1 {
+      color: #0a1f44;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+    form {
+      background: #f8f9fa;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #0a1f44;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    button {
+      background: #0a1f44;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: block;
+      margin: 1.5rem auto 0;
+    }
+    button:hover {
+      background: #d4af37;
+    }
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-float a {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar igual al principal (puedes copiar el HTML completo del nav si quieres consistencia total) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html#servicios">Nuestros Servicios</a>
+        <a href="index.html#vision">Visión y Misión</a>
+        <a href="index.html#clientes">Nuestros Clientes</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <!-- Agrega tus íconos sociales si los quieres aquí también -->
+    </div>
+  </nav>
+
+  <div class="whatsapp-float">
+    <a href="https://wa.me/522291349025" target="_blank">
+      <!-- Ícono de WhatsApp igual al original -->
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <main>
+    <h1>Déjanos un Mensaje</h1>
+    
+    <form action="mailto:info@ruberrojas.com" method="post" enctype="text/plain">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="tuemail@ejemplo.com">
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required placeholder="+52 229 123 4567">
+
+      <label for="comentarios">Comentarios:</label>
+      <textarea id="comentarios" name="comentarios" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+</body>
+</html>
