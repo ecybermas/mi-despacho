@@ -65,6 +65,7 @@
       display: flex;
       gap: 1.8rem;
       align-items: center;
+      justify-content: flex-end; /* ← Cambio: íconos alineados a la derecha */
     }
     .social-icons svg {
       width: 28px;
@@ -149,46 +150,27 @@
       font-size: clamp(3.2rem, 9vw, 6.2rem);
       font-weight: 900;
       margin-bottom: 0.4rem;
-      color: white; /* inicia en blanco */
+      color: white;
       text-shadow: 0 2px 10px rgba(0,0,0,0.6);
       opacity: 0;
       transform: translateY(40px);
-      transition: all 1.8s ease-out, color 0.5s ease 4.3s; /* cambio de color después del glow */
+      transition: all 1.8s ease-out, color 0.5s ease 4.3s;
       letter-spacing: 1px;
       font-family: system-ui, -apple-system, sans-serif;
-      animation: glowLetters 3s ease-in-out forwards 0.8s; /* glow progresivo */
+      animation: glowLetters 3s ease-in-out forwards 0.8s;
     }
     .hero-content .name.visible {
       opacity: 1;
       transform: translateY(0);
-      color: white; /* vuelve a blanco al final del efecto */
+      color: white;
     }
 
-    /* Efecto glow progresivo de izquierda a derecha en dorado */
     @keyframes glowLetters {
-      0% {
-        text-shadow: 0 0 10px rgba(212,175,55,0);
-      }
-      20% {
-        text-shadow: 
-          0 0 20px #d4af37,
-          0 0 30px #d4af37;
-      }
-      40% {
-        text-shadow: 
-          0 0 30px #d4af37,
-          0 0 50px #d4af37;
-      }
-      60% {
-        text-shadow: 
-          0 0 40px #d4af37,
-          0 0 70px #d4af37;
-      }
-      100% {
-        text-shadow: 
-          0 0 25px #d4af37,
-          0 0 45px #d4af37;
-      }
+      0% { text-shadow: 0 0 10px rgba(212,175,55,0); }
+      20% { text-shadow: 0 0 20px #d4af37, 0 0 30px #d4af37; }
+      40% { text-shadow: 0 0 30px #d4af37, 0 0 50px #d4af37; }
+      60% { text-shadow: 0 0 40px #d4af37, 0 0 70px #d4af37; }
+      100% { text-shadow: 0 0 25px #d4af37, 0 0 45px #d4af37; }
     }
 
     .hero-content .subtitle {
@@ -221,7 +203,6 @@
       transform: translateY(0);
     }
 
-    /* Botón Contáctanos */
     .hero-content .contact-btn {
       margin-top: 2.5rem;
       padding: 1rem 2.8rem;
@@ -540,9 +521,10 @@
           <circle cx="18.5" cy="5.5" r="1.5"/>
         </svg>
         <a href="https://www.facebook.com/despacho.rojas" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24">
-          <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-        </svg>
+          <svg viewBox="0 0 24 24">
+            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </nav>
@@ -756,7 +738,7 @@
     </div>
   </main>
 
-  <!-- Script (sin cambios en estructura) -->
+  <!-- Script (sin cambios) -->
   <script>
     // Menú móvil (sin cambios)
     if (window.innerWidth <= 768) {
@@ -844,4 +826,3 @@
   </script>
 </body>
 </html>
-
