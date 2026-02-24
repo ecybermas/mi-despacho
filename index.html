@@ -146,29 +146,67 @@
       padding: 8rem 1.5rem 0;
     }
     .hero-content .name {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 800;
-      margin-bottom: 0.3rem;
-      color: #d4af37;
+      font-size: clamp(3.2rem, 9vw, 6.2rem);
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+      color: white; /* inicia en blanco */
       text-shadow: 0 2px 10px rgba(0,0,0,0.6);
       opacity: 0;
       transform: translateY(40px);
-      transition: all 1.8s ease-out;
+      transition: all 1.8s ease-out, color 0.5s ease 4.3s; /* cambio de color después del glow */
+      letter-spacing: 1px;
+      font-family: system-ui, -apple-system, sans-serif;
+      animation: glowLetters 3s ease-in-out forwards 0.8s; /* glow progresivo */
     }
+    .hero-content .name.visible {
+      opacity: 1;
+      transform: translateY(0);
+      color: white; /* vuelve a blanco al final del efecto */
+    }
+
+    /* Efecto glow progresivo de izquierda a derecha en dorado */
+    @keyframes glowLetters {
+      0% {
+        text-shadow: 0 0 10px rgba(212,175,55,0);
+      }
+      20% {
+        text-shadow: 
+          0 0 20px #d4af37,
+          0 0 30px #d4af37;
+      }
+      40% {
+        text-shadow: 
+          0 0 30px #d4af37,
+          0 0 50px #d4af37;
+      }
+      60% {
+        text-shadow: 
+          0 0 40px #d4af37,
+          0 0 70px #d4af37;
+      }
+      100% {
+        text-shadow: 
+          0 0 25px #d4af37,
+          0 0 45px #d4af37;
+      }
+    }
+
     .hero-content .subtitle {
-      font-size: clamp(1.3rem, 5vw, 2.2rem);
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
       font-weight: 500;
-      max-width: 800px;
-      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-bottom: 2.2rem;
+      color: white;
       opacity: 0;
       transform: translateY(40px);
       transition: all 1.8s ease-out 0.3s;
+      letter-spacing: 0.5px;
     }
     .hero-content .quote {
-      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
       font-style: italic;
       color: #d4af37;
-      max-width: 700px;
+      max-width: 800px;
       line-height: 1.5;
       white-space: pre-line;
       text-align: center;
@@ -182,6 +220,36 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Botón Contáctanos */
+    .hero-content .contact-btn {
+      margin-top: 2.5rem;
+      padding: 1rem 2.8rem;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 600;
+      color: #0a1f44;
+      background: white;
+      border: 2px solid #d4af37;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      display: inline-block;
+    }
+    .hero-content .contact-btn:hover {
+      background: #d4af37;
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(212,175,85,0.4);
+    }
+    .hero-content .contact-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 1s;
+    }
+
     /* CONTENIDO PRINCIPAL */
     main .container {
       width: 90%;
@@ -307,11 +375,9 @@
       position: relative;
       transition: color 0.3s ease;
     }
-
     .service-list li:hover {
-      color: #d4af37; /* mismo dorado de las redes sociales */
+      color: #d4af37;
     }
-
     .service-list li::after {
       content: '';
       position: absolute;
@@ -319,10 +385,9 @@
       height: 2px;
       bottom: -4px;
       left: 0;
-      background-color: #0a1f44; /* subrayado azul igual al menú */
+      background-color: #0a1f44;
       transition: width 0.3s ease;
     }
-
     .service-list li:hover::after {
       width: 100%;
     }
@@ -372,17 +437,17 @@
         padding-top: 6rem;
       }
       .hero-content .name {
-        font-size: clamp(2.2rem, 10vw, 4rem);
+        font-size: clamp(2.8rem, 11vw, 5rem);
       }
       .hero-content .subtitle {
-        font-size: clamp(1.1rem, 6vw, 1.8rem);
+        font-size: clamp(1.4rem, 7vw, 2.2rem);
       }
       .hero-content .quote {
-        font-size: clamp(1rem, 4vw, 1.4rem);
+        font-size: clamp(1.1rem, 5vw, 1.6rem);
       }
-      .service-banner {
-        margin: 1rem auto 2rem;
-        border-radius: 6px;
+      .hero-content .contact-btn {
+        padding: 0.9rem 2.4rem;
+        font-size: clamp(1rem, 5vw, 1.3rem);
       }
       .carousel-arrow {
         width: 40px;
@@ -495,12 +560,12 @@
         <h1 class="name">Corporativo Rojas</h1>
         <p class="subtitle">Asesoría Fiscal y Contable</p>
         <p class="quote">"EL QUE NO QUIERA VIVIR SINO ENTRE JUSTOS<br>VIVA EN EL DESIERTO"</p>
+        <a href="contacto.html" class="contact-btn">Contáctanos</a>
       </div>
     </section>
     <div class="container">
       <section class="section" id="servicios">
         <h2>Nuestros Servicios</h2>
-
         <!-- Categoría Contable -->
         <div class="category-title">Contable</div>
         <div class="category-carousel" data-category="contable">
@@ -517,7 +582,6 @@
             <span class="carousel-dot" data-index="2"></span>
           </div>
         </div>
-
         <div class="services">
           <div class="service-category">
             <ul class="service-list">
@@ -535,7 +599,6 @@
               <li>Realizamos tus Facturas Timbradas</li>
             </ul>
           </div>
-
           <!-- Categoría Jurídico Laboral -->
           <div class="service-category">
             <div class="category-title">Jurídico Laboral</div>
@@ -561,7 +624,6 @@
               <li>Jubilación</li>
             </ul>
           </div>
-
           <!-- Categoría Penal -->
           <div class="service-category">
             <div class="category-title">Penal</div>
@@ -586,7 +648,6 @@
               <li>Amparo</li>
             </ul>
           </div>
-
           <!-- Categoría Fiscal -->
           <div class="service-category">
             <div class="category-title">Fiscal</div>
@@ -610,7 +671,6 @@
               <li>Demanda de lo Contencioso</li>
             </ul>
           </div>
-
           <!-- Categoría Civil -->
           <div class="service-category">
             <div class="category-title">Civil</div>
@@ -634,7 +694,6 @@
               <li>Divorcios</li>
             </ul>
           </div>
-
           <!-- Categoría Gestoría -->
           <div class="service-category">
             <div class="category-title">Gestoría</div>
@@ -696,7 +755,7 @@
     </div>
   </main>
 
-  <!-- Script original sin tocar + script para TODOS los carruseles -->
+  <!-- Script (sin cambios en estructura) -->
   <script>
     // Menú móvil (sin cambios)
     if (window.innerWidth <= 768) {
@@ -720,19 +779,22 @@
       });
     }
 
-    // Animación hero (sin cambios)
-    window.addEventListener('load', function() {
+    // Animación hero
+    document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
-        const nameEl = document.querySelector('.hero-content .name');
+        const nameEl    = document.querySelector('.hero-content .name');
         const subtitleEl = document.querySelector('.hero-content .subtitle');
-        const quoteEl = document.querySelector('.hero-content .quote');
+        const quoteEl    = document.querySelector('.hero-content .quote');
+        const btnEl      = document.querySelector('.hero-content .contact-btn');
+
         if (nameEl) nameEl.classList.add('visible');
         if (subtitleEl) subtitleEl.classList.add('visible');
         if (quoteEl) quoteEl.classList.add('visible');
-      }, 600);
+        if (btnEl) btnEl.classList.add('visible');
+      }, 800);
     });
 
-    // ────────────── CARRUSEL PARA TODAS LAS CATEGORÍAS ──────────────
+    // Carrusel (sin cambios)
     document.querySelectorAll('.category-carousel').forEach(carousel => {
       const slides = carousel.querySelector('.carousel-slides');
       const prevBtn = carousel.querySelector('.carousel-prev');
@@ -741,32 +803,26 @@
       let currentIndex = 0;
       let interval;
       const totalSlides = carousel.querySelectorAll('.carousel-slide').length;
-
       function updateCarousel() {
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
         dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
       }
-
       function nextSlide() {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateCarousel();
       }
-
       function prevSlide() {
         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         updateCarousel();
       }
-
       prevBtn.addEventListener('click', () => {
         prevSlide();
         resetInterval();
       });
-
       nextBtn.addEventListener('click', () => {
         nextSlide();
         resetInterval();
       });
-
       dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
           currentIndex = index;
@@ -774,25 +830,16 @@
           resetInterval();
         });
       });
-
       function startInterval() {
         interval = setInterval(nextSlide, 5000);
       }
-
       function resetInterval() {
         clearInterval(interval);
         startInterval();
       }
-
       startInterval();
       updateCarousel();
     });
-    // ────────────────────────────────────────────────────────────────────────────
   </script>
 </body>
 </html>
-
-
-
-
-
